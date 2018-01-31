@@ -19,7 +19,7 @@ function writeFile(path, text, callback) {
 ls(__dirname, (err, stdout) => {
     console.log(stdout);
 
-    mkDir(`${__dirname}/tempDir`, (err) => {
+    mkDir(`${__dirname}/tempDir`, () => {
 
         ls(__dirname, (err, stdout) => {
             assert.equal(stdout.includes('tempDir'), true, `tempDir was not created`);

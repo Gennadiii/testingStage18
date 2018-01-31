@@ -1,6 +1,5 @@
-function log(message) {
-    console.log(`${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}:${new Date().getMilliseconds()} - ${message}`);
-}
+const log = require('../helpers/log.helper').log;
+
 
 class Developer {
     constructor(params) {
@@ -84,3 +83,4 @@ middle.clean();
 senior.orderFood();
 senior.pay();
 senior.clean();
+
