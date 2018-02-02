@@ -1,25 +1,26 @@
 //latentflip.com/loupe/
 
-console.log('START');
+console.log('SYNC START');
 
 setTimeout(function iAmTheFastest() {
-	console.log('I am the fastest');
+	console.log('I am the fastest async');
 }, 1000);
 
 function func1(myVar) {
 	return new Promise(function(resolve, reject) {
-		console.log('Promise start');
+		console.log('Sync Promise start');
 		setTimeout(function thisIsPromise() {
 			myVar ? resolve(myVar) : reject('Rejected');
 		}, 10 * 1000);
-		console.log('Promise end');
+		console.log('Sync Promise end');
 	});
 }
 
-func1(1);
+func1("I'm from promise")
+	.then(console.log);
 
 setTimeout(function asyncEnd() {
 	console.log('Async end');
 }, 2000);
 
-console.log('END');
+console.log('SYNC END');

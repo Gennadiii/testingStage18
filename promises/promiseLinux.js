@@ -4,26 +4,26 @@ const assert = require('assert');
 
 function ls(path) {
     return new Promise((resolve, reject) => {
-        fs.readdir(path, cbHanler(resolve, reject))
+        fs.readdir(path, cbHandler(resolve, reject))
     });
 
 }
 
 function mkDir(path) {
     return new Promise((resolve, reject) => {
-        fs.mkdir(path, cbHanler(resolve, reject))
+        fs.mkdir(path, cbHandler(resolve, reject))
     });
 
 }
 
 function writeFile(path, text) {
     return new Promise((resolve, reject) => {
-        fs.writeFile(path, text, cbHanler(resolve, reject))
+        fs.writeFile(path, text, cbHandler(resolve, reject))
     });
 
 }
 
-function cbHanler(resolve, reject) {
+function cbHandler(resolve, reject) {
     return (err, stdout) => {
         err && reject(err);
         resolve(stdout);

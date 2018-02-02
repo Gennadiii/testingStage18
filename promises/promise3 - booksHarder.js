@@ -15,7 +15,7 @@ const books = [
     }
 ];
 
-function emulateRequest({resolveEntity, timeDelay = 1}) {
+function emulateRequest({resolveEntity, timeDelay = 1000}) {
     return new Promise(resolve => {
         setTimeout(_ => resolve(resolveEntity), timeDelay);
     });

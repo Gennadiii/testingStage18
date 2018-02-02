@@ -1,0 +1,20 @@
+{
+  "name": "tractorcucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "cucumber": "^4.0.0",
+    "protractor": "^3.2.1"
+  },
+  "devDependencies": {
+    "protractor-cucumber-framework": "^4.2.0"
+  }
+}
