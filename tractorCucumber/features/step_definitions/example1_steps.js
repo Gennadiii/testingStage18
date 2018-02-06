@@ -8,50 +8,50 @@ let expect = chai.expect;
 
 
 const firstField = element(by.model('first')),
-    secondField = element(by.model('second')),
-    goButton = element(by.id('gobutton')),
-    lastResult = element(by.binding('latest'));
+  secondField = element(by.model('second')),
+  goButton = element(by.id('gobutton')),
+  lastResult = element(by.binding('latest'));
 
 
 function openSite(site) {
-    browser.get(site);
+  browser.get(site);
 }
 
 function enterDigit(num, field) {
-    field.sendKeys(num);
-    browser.sleep(2000);
+  field.sendKeys(num);
+  browser.sleep(2000);
 }
 
 function clickGoButton() {
-    goButton.click();
+  goButton.click();
 }
 
 
 Given(/^Assertions work fine$/, function () {
-    console.log('Checking assertions');
-    expect(true).to.equal(true);
-    // expect(true).to.equal(false);
+  console.log('Checking assertions');
+  expect(true).to.equal(true);
+  // expect(true).to.equal(false);
 });
 
 Given(/^Open site$/, function () {
-    console.log('Opening site');
-    openSite('http://juliemr.github.io/protractor-demo/');
+  console.log('Opening site');
+  openSite('http://juliemr.github.io/protractor-demo/');
 });
 
 When(/^Enter digit "(\d*)" to "(first|second)" field$/, function (num, field) {
-    console.log(`Entering digit ${num}`);
-    field = field === 'first'
-        ? firstField
-        : secondField;
-    enterDigit(num, field);
+  console.log(`Entering digit ${num}`);
+  field = field === 'first'
+    ? firstField
+    : secondField;
+  enterDigit(num, field);
 });
 
 When(/^Click go button$/, function () {
-    console.log('Clicking go button');
-    clickGoButton();
+  console.log('Clicking go button');
+  clickGoButton();
 });
 
 Then(/^Last result is "(\d*)"$/, function (num) {
-    console.log(`Checking if result is ${num}`);
-    expect(lastResult.getText()).to.eventually.equal(num);
+  console.log(`Checking if result is ${num}`);
+  expect(lastResult.getText()).to.eventually.equal(num);
 });

@@ -1,20 +1,25 @@
 //latentflip.com/loupe/
 function log(text) {
-    console.log(text);
+  console.log(text);
 }
+
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
+
 function calcSquare(n) {
-    return multiply(n, n);
+  return multiply(n, n);
 }
+
 function printSquare(n) {
-    let square = calcSquare(n);
-    console.log(square);
+  let square = calcSquare(n);
+  console.log(square);
 }
+
 function main() {
-    printSquare(42);
+  printSquare(42);
 }
+
 multiply(21, 2);
 log('Some important text');
 main();

@@ -1,18 +1,18 @@
 function multiply(a, b) {
-    throw new Error('Some error');
+  throw new Error('Some error');
 }
 
 function calcSquare(n) {
-    return multiply(n, n);
+  return multiply(n, n);
 }
 
 function printSquare(n) {
-    let square = calcSquare(n);
-    console.log(square);
+  let square = calcSquare(n);
+  console.log(square);
 }
 
 function main() {
-    printSquare(42);
+  printSquare(42);
 }
 
 main();
