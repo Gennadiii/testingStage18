@@ -252,22 +252,23 @@ describe('Promises mistakes', function () {
         .then(result => expect(result).toBe(true));
 
     });
+
+    it('Example 2', function () {
+
+      function enterDigitsAndGetResult() {
+        enterDigit(40, firstField);
+        enterDigit(2, secondField);
+        clickGoButton();
+        return lastResult.getText()
+          .then(text => {
+            return text === '42';
+          });
+      }
+
+      enterDigitsAndGetResult()
+        .then(result => expect(result).toBe(true));
+
+    });
   });
 
-  it('Example 2', function () {
-
-    function enterDigitsAndGetResult() {
-      enterDigit(40, firstField);
-      enterDigit(2, secondField);
-      clickGoButton();
-      return lastResult.getText()
-        .then(text => {
-          return text === '42';
-        });
-    }
-
-    enterDigitsAndGetResult()
-      .then(result => expect(result).toBe(true));
-
-  });
 });
