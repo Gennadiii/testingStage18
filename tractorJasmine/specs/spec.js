@@ -100,4 +100,45 @@ describe('Protractor Demo App', function () {
 
   });
 
+
+  describe('Example 3', function () {
+
+    it(`can't catch`, function () {
+
+      const notExistingElement = element(by.id('42'));
+
+      function elementNotDisplayed(el) {
+        return el.isDisplayed()
+          .thenCatch(_ => true);
+      }
+
+      expect(elementNotDisplayed(notExistingElement)).toBe(true)
+    });
+
+    it(`can catch in then`, function () {
+
+      const notExistingElement = element(by.id('42'));
+
+      function elementNotDisplayed(el) {
+        return el.isDisplayed()
+          .then(null, _ => true);
+      }
+
+      expect(elementNotDisplayed(notExistingElement)).toBe(true)
+    });
+
+    it(`can catch after then`, function () {
+
+      const notExistingElement = element(by.id('42'));
+
+      function elementNotDisplayed(el) {
+        return el.isDisplayed()
+          .then(isDisplayed => !isDisplayed)
+          .thenCatch(_ => true);
+      }
+
+      expect(elementNotDisplayed(notExistingElement)).toBe(true)
+    });
+  });
+
 });
