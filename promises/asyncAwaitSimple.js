@@ -19,5 +19,4 @@ async function myFunc() {
   return promiseResult || 42;
 }
 
-myFunc()
-  .then(console.log);
+myFunc();
