@@ -16,7 +16,7 @@ async function myFunc() {
   } catch (err) {
     console.log(err);
   }
-  return promiseResult || 42;
+  return promiseResult;
 }
 
 myFunc();

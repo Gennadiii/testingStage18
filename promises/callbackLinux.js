@@ -27,8 +27,8 @@ ls(__dirname, (err, stdout) => {
 
         ls(`${__dirname}/tempDir`, (err, stdout) => {
           assert(stdout.includes('tempFile.txt'), true, `didn't find tempFile.txt`);
-        })
-      })
-    })
-  })
+        });
+      });
+    });
+  });
 });
