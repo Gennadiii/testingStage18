@@ -179,7 +179,6 @@ describe('Promises mistakes', function () {
 
 
       element.all(by.css('input')).count()
-        .then(count => count > 0)
         .then(_ => {
           fields.forEach((field, index) => {
             enterDigit(index, field);

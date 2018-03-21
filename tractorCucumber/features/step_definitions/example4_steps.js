@@ -29,8 +29,8 @@
 //
 // Given(/^Assertions work fine$/, function () {
 //     console.log('Checking assertions');
-//     expect(true).to.equal(true);
-//     // expect(true).to.equal(false);
+//     // expect(true).to.equal(true);
+//     expect(true).to.equal(false);
 // });
 //
 // Given(/^Open site$/, function () {

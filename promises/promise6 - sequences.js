@@ -1,6 +1,8 @@
-const log = require('../helpers/log.helper').log;
+// Run array of promises one by one
 
-const delay = timeout => (log('Delaying promise'), new Promise(resolve => setTimeout(_ => (log('Promise delayed'), resolve()), timeout || 1000)));
+const log = require('../helpers/log.helper').log;
+let counter = 0;
+const delay = timeout => (log(`Delaying promise ${++counter}`), new Promise(resolve => setTimeout(_ => (log(`Promise ${counter} delayed`), resolve()), timeout || 1000)));
 
 const promises = [delay, delay, delay, delay, delay];
 

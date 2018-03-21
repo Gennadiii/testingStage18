@@ -2,8 +2,6 @@ const fs = require('fs');
 const {promise} = require('selenium-webdriver');
 const process = require('process');
 
-process.env.SELENIUM_PROMISE_MANAGER = 0;
-
 const firstField = element(by.model('first')),
   secondField = element(by.model('second')),
   goButton = element(by.id('gobutton')),
@@ -32,18 +30,7 @@ describe('Protractor Demo App', function () {
 
   describe('Example 1', function () {
 
-    it('adds to values1', function () {
-
-      enterDigit(40, firstField);
-      enterDigit(2, secondField);
-
-      clickGoButton();
-
-      expect(lastResult.getText()).toEqual('42');
-
-    });
-
-    it('adds to values2', function () {
+    it('adds two values 1', function () {
 
       enterDigit(40, firstField);
       enterDigit(2, secondField);
@@ -57,7 +44,7 @@ describe('Protractor Demo App', function () {
 
   describe('Example 2', function () {
 
-    it('adds to values3', function () {
+    it('adds two values 2', function () {
 
       enterDigit(40, firstField);
       enterDigit(2, secondField);
@@ -70,7 +57,7 @@ describe('Protractor Demo App', function () {
 
     });
 
-    it('adds to values4', function () {
+    it('adds two values 3', function () {
 
       enterDigit(40, firstField);
       enterDigit(2, secondField);
@@ -84,7 +71,7 @@ describe('Protractor Demo App', function () {
 
     });
 
-    it('adds to values5', function () {
+    it('adds two values4 ', function () {
 
       enterDigit(40, firstField);
       enterDigit(2, secondField);

@@ -1,7 +1,9 @@
+// Find book by partial name and say thank you to author for this particular book
+
 const log = require('../helpers/log.helper').log;
 
 
-function emulateRequest({resolveEntity, timeDelay = 1}) {
+function emulateRequest({resolveEntity, timeDelay = 1000}) {
   return new Promise(resolve => {
     setTimeout(_ => resolve(resolveEntity), timeDelay);
   });
@@ -37,17 +39,16 @@ function getAuthor(book) {
 }
 
 function sayThanksForBook(author, book) {
-  console.log(`\nThanks for the book ${book}, ${author}`);
+  console.log(`\nThanks for the book "${book}", ${author}`);
 }
 
 
 void async function main() {
   try {
     let books = await getBooks(),
-      book = await findBookByPartialName(books, 'Good Parts'),
-      theBookName = book.name,
-      author = await getAuthor(book);
-    await sayThanksForBook(author, theBookName);
+      book = findBookByPartialName(books, 'Good Parts'),
+      author = getAuthor(book);
+    sayThanksForBook(author, book.name);
   } catch (err) {
     console.log(err);
   }

@@ -1,3 +1,5 @@
+// Find book by name and say thank you to it's author
+
 const log = require('../helpers/log.helper').log;
 
 const books = [
@@ -43,6 +45,13 @@ function sayThanks(author) {
 
 getBooks()
   .then(books => findBook(books, 'JavaScript: The Good Parts'))
-  .then(getAuthor)
-  .then(sayThanks)
+  .then(book => getAuthor(book))
+  .then(author => sayThanks(author))
   .catch(console.log);
+
+
+// getBooks()
+//   .then(books => findBook(books, 'JavaScript: The Good Parts'))
+//   .then(getAuthor)
+//   .then(sayThanks)
+//   .catch(console.log);

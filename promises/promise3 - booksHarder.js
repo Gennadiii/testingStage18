@@ -1,3 +1,5 @@
+// Find book by partial name and say thank you to author for this particular book
+
 const log = require('../helpers/log.helper').log;
 
 const books = [
@@ -37,7 +39,7 @@ function getAuthor(book) {
 }
 
 function sayThanksForBook(author, book) {
-  console.log(`\nThanks for the book ${book}, ${author}`);
+  console.log(`\nThanks for the book "${book}", ${author}`);
 }
 
 
