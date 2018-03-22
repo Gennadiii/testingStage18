@@ -32,17 +32,21 @@ function cbHandler(resolve, reject) {
 
 
 void async function main() {
-  let mainDirLs = null,
-    tempDirLs = null;
-  console.log(await ls(__dirname));
+  try {
+    let mainDirLs = null,
+      tempDirLs = null;
+    console.log(await ls(__dirname));
 
-  await mkDir(`${__dirname}/tempDir`);
+    await mkDir(`${__dirname}/tempDir`);
 
-  mainDirLs = await ls(__dirname);
-  assert.equal(mainDirLs.includes('tempDir'), true, `tempDir was not created`);
+    mainDirLs = await ls(__dirname);
+    assert.equal(mainDirLs.includes('tempDir'), true, `tempDir was not created`);
 
-  await writeFile(`${__dirname}/tempDir/tempFile.txt`);
+    await writeFile(`${__dirname}/tempDir/tempFile.txt`);
 
-  tempDirLs = await ls(`${__dirname}/tempDir`);
-  assert(tempDirLs.includes('tempFile.txt'), true, `didn't find tempFile.txt`);
+    tempDirLs = await ls(`${__dirname}/tempDir`);
+    assert(tempDirLs.includes('tempFile.txt'), true, `didn't find tempFile.txt`);
+  } catch(err) {
+    console.log(err);
+  }
 }();

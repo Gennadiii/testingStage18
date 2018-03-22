@@ -1,14 +1,3 @@
-//latentflip.com/loupe/
-
-/*
-function fib(num) { // Don't block the stack
-    if (num < 2) return 1;
-    return fib(num - 2) + fib(num - 1);
-}
-// $.on('button', 'click', function onClick() {
-// });
-// */
-
 console.log("I'm synchronous 1");
 setTimeout(function func1() {
   console.log("I'm async function 1");
@@ -20,6 +9,4 @@ console.log("I'm synchronous 2");
 setTimeout(function func3() {
   console.log("I'm async function 3");
 }, 150);
-// fib(42);
-// fib(2);
 console.log("I'm synchronous 3");

@@ -8,9 +8,9 @@ const promises = [delay, delay, delay, delay, delay];
 
 
 let result = Promise.resolve();
-Promise.all(promises.map(promise => {
+promises.forEach(promise => {
   return result = result.then(promise);
-}));
+});
 
 
 // return promises.reduce((prev, cur) => prev.then(cur), Promise.resolve());

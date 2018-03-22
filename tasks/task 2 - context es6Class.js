@@ -17,5 +17,5 @@ es6Instance.func();
 Promise.resolve()
   // .then(() => es6Instance.func())
   // .then(es6Instance.func)
-  // .then(es6Instance.func.bind(es6Instance)) // there's a better way to do it
+  // .then(es6Instance.func.bind(es6Instance))
   .catch(err => console.log(`Something went wrong: ${err}`));

@@ -1,7 +1,7 @@
 const log = require('../helpers/log.helper').log;
 
 
-function delay(timeout = 1000) {
+function delay(timeout = 2000) {
   log('Delaying with a promise');
   // your code here
 }

@@ -41,11 +41,11 @@ describe('Promises mistakes', function () {
     it(`Forget to return a value`, function () {
 
       const users = [{id: 1, name: 'John Doe'}];
-      const getUserNameSync = id => users.find(user => user.id === id).name;
+      const getUserName = id => users.find(user => user.id === id).name;
 
       Promise.resolve()
         .then(_ => {
-          getUserNameSync(1);
+          getUserName(1);
         })
         .then(userName => expect(userName).toEqual('John Doe'));
 
@@ -72,13 +72,13 @@ describe('Promises mistakes', function () {
     it(`Example 1`, function () {
 
       const users = [{id: 1, name: 'John Doe'}];
-      const getUserNameSync = id => users.find(user => user.id === id).name;
+      const getUserName = id => users.find(user => user.id === id).name;
 
       Promise.resolve()
         .then(_ => {
-          conslole.log(getUserNameSync(1));
+          conslole.log(getUserName(1));
         })
-        .then(userName => expect(userName).toEqual('John Doe'));
+        .then(userName => expect(userName).toEqual('Vasyl Pupkin'));
 
     });
 

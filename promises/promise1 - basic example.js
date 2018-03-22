@@ -17,7 +17,7 @@ function func1(myVar) {
 }
 
 func1("I'm from promise")
-  .then(console.log);
+  .then(console.log); // remove for loupe
 
 setTimeout(function asyncEnd() {
   console.log('Async end');

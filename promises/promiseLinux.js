@@ -39,4 +39,4 @@ ls(__dirname)
   .then(_ => writeFile(`${__dirname}/tempDir/tempFile.txt`))
   .then(_ => ls(`${__dirname}/tempDir`))
   .then(stdout => assert(stdout.includes('tempFile.txt'), true, `didn't find tempFile.txt`))
-  .catch(err => console.log(err));
+  .catch(console.log);
