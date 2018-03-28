@@ -1,3 +1,4 @@
+//latentflip.com/loupe/
 console.log("I'm synchronous 1");
 setTimeout(function func1() {
   console.log("I'm async function 1");

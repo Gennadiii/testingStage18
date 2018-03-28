@@ -9,8 +9,8 @@ function pow(x, n) {
 }
 
 try {
-  console.log(pow(2, 3));
-  // console.log(pow(2, 10000));
+  // console.log(pow(2, 3)); // loupe
+  console.log(pow(2, 10000));
 } catch (err) {
   console.log(counter);
   console.log(err.message);

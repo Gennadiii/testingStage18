@@ -46,7 +46,7 @@ void async function main() {
 
     tempDirLs = await ls(`${__dirname}/tempDir`);
     assert(tempDirLs.includes('tempFile.txt'), true, `didn't find tempFile.txt`);
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 }();
