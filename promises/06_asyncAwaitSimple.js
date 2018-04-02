@@ -8,7 +8,7 @@ function myRandomPromise() {
 }
 
 
-(async function myFunc() {
+async function myFunc() {
   let promiseResult = null;
   try {
     let promiseResult = await myRandomPromise();
@@ -17,4 +17,7 @@ function myRandomPromise() {
     console.log(err);
   }
   return promiseResult;
-})();
+};
+
+myFunc()
+  .catch(console.log);

@@ -50,8 +50,8 @@ getBooks()
   .catch(console.log);
 
 
-getBooks()
-  .then(books => findBook(books, 'JavaScript: The Good Parts'))
-  .then(getAuthor)
-  .then(sayThanks)
-  .catch(console.log);
+// getBooks()
+//   .then(books => findBook(books, 'JavaScript: The Good Parts'))
+//   .then(getAuthor)
+//   .then(sayThanks)
+//   .catch(console.log);

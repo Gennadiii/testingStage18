@@ -9,7 +9,7 @@ const promises = [delay, delay, delay, delay, delay];
 
 let result = Promise.resolve();
 promises.forEach(promise => {
-  return result = result.then(promise);
+  result = result.then(promise);
 });
 
 
