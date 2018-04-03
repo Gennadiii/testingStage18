@@ -30,25 +30,28 @@ function getBooks() {
 
 function findBookByPartialName(books, name) {
   log(`Looking for book: ${name}`);
-  return books.find(book => book.name.includes(name));
+  return Promise.resolve()
+    .then(_ => books.find(book => book.name.includes(name)));
 }
 
 function getAuthor(book) {
   log(`Getting author`);
-  return book.author;
+  return Promise.resolve()
+    .then(_ => book.author);
 }
 
 function sayThanksForBook(author, book) {
-  console.log(`\nThanks for the book "${book}", ${author}`);
+  Promise.resolve()
+    .then(_ => console.log(`\nThanks for the book "${book}", ${author}`));
 }
 
 
 void async function main() {
   try {
     let books = await getBooks(),
-      book = findBookByPartialName(books, 'Good Parts'),
-      author = getAuthor(book);
-    sayThanksForBook(author, book.name);
+      book = await findBookByPartialName(books, 'Good Parts'),
+      author = await getAuthor(book);
+    await sayThanksForBook(author, book.name);
   } catch (err) {
     console.log(err);
   }

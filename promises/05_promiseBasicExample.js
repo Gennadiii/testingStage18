@@ -10,7 +10,7 @@ function func1(myVar) {
   return new Promise(function (resolve, reject) {
     console.log('Sync Promise start');
     setTimeout(function thisIsPromise() {
-      myVar ? resolve(myVar) : reject('Rejected');
+      myVar ? resolve(myVar) : reject(new Error('Rejected'));
     }, 10 * 1000);
     console.log('Sync Promise end');
   });

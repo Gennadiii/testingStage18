@@ -6,7 +6,7 @@ const getUserAsync = id => Promise.resolve(users.find(user => user.id === id));
 getUserAsync(1)
   .then(user => {
     if (!user.isLoggedIn) {
-      throw new Error('User is not logged in');
+      throw new Error('Synchronous error');
     }
     return user;
   })
@@ -16,7 +16,7 @@ getUserAsync(1)
 getUserAsync(1)
   .then(user => {
     if (!user.isLoggedIn) {
-      return Promise.reject('REJECTED: User is not logged in');
+      return Promise.reject(new Error('REJECTED with Promise.reject'));
     }
     return user;
   })

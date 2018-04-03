@@ -30,16 +30,19 @@ function getBooks() {
 
 function findBook(books, name) {
   log(`Looking for book: ${name}`);
-  return books.find(book => book.name === name);
+  return Promise.resolve()
+    .then(_ => books.find(book => book.name === name));
 }
 
 function getAuthor(book) {
   log(`Getting author`);
-  return book.author;
+  return Promise.resolve()
+    .then(_ => book.author);
 }
 
 function sayThanks(author) {
-  console.log(`\nThanks, ${author}`);
+  Promise.resolve()
+    .then(_ => console.log(`\nThanks, ${author}`));
 }
 
 
@@ -48,10 +51,3 @@ getBooks()
   .then(book => getAuthor(book))
   .then(author => sayThanks(author))
   .catch(console.log);
-
-
-// getBooks()
-//   .then(books => findBook(books, 'JavaScript: The Good Parts'))
-//   .then(getAuthor)
-//   .then(sayThanks)
-//   .catch(console.log);
