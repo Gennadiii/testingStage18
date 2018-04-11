@@ -13,4 +13,4 @@ promises.forEach(promise => {
 });
 
 
-// return promises.reduce((prev, cur) => prev.then(cur), Promise.resolve());
+// promises.reduce((prev, cur) => prev.then(cur), Promise.resolve());
