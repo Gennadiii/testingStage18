@@ -3,6 +3,7 @@ const log = require('../../helpers/log.helper').log;
 const firstField = element(by.model('first')),
   secondField = element(by.model('second')),
   goButton = element(by.id('gobutton')),
+  latestCalculation = element(by.css(`[ng-repeat="result in memory"]`)),
   lastResult = element(by.binding('latest'));
 
 
@@ -26,7 +27,9 @@ async function allPromisesTrue(arr) {
   return resolvedPromisesArr.every(promise => promise === true);
 }
 
-const delay = timeout => (log('Delaying promise'), new Promise(resolve => setTimeout(_ => (log('Promise delayed'), resolve()), timeout || 1000)));
+const delay = (timeout, 1000)
+=>
+(log('Delaying promise'), new Promise(resolve => setTimeout(_ => (log('Promise delayed'), resolve()), timeout)));
 
 
 describe('Promises mistakes', function () {
@@ -105,7 +108,7 @@ describe('Promises mistakes', function () {
       enterDigit(40, firstField);
       enterDigit(2, secondField);
 
-      if (!lastResult.isPresent()) {
+      if (!latestCalculation.isPresent()) {
         clickGoButton();
       }
 
@@ -118,9 +121,9 @@ describe('Promises mistakes', function () {
       enterDigit(40, firstField);
       enterDigit(2, secondField);
 
-      lastResult.isPresent()
-        .then(lastResultIsPresent => {
-          if (!lastResultIsPresent) {
+      latestCalculation.isPresent()
+        .then(latestCalculationIsPresent => {
+          if (!latestCalculation.resIsPresent) {
             clickGoButton();
             expect(lastResult.getText()).toEqual('42');
           }
@@ -178,7 +181,7 @@ describe('Promises mistakes', function () {
       let fields = [firstField, secondField];
 
 
-      element.all(by.css('input')).count()
+      protractor.promise.fulfilled()
         .then(_ => {
           fields.forEach((field, index) => {
             enterDigit(index, field);
@@ -220,8 +223,7 @@ describe('Promises mistakes', function () {
 
       let fields = [firstField, secondField];
 
-      element.all(by.css('input')).count()
-        .then(count => count > 0)
+      protractor.promise.fulfilled()
         .then(_ => Promise.all(
           fields.map(
             (field, index) => enterDigit(index, field))))
