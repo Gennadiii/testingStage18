@@ -1,7 +1,3 @@
-const fs = require('fs');
-const {promise} = require('selenium-webdriver');
-const process = require('process');
-
 const firstField = element(by.model('first')),
   secondField = element(by.model('second')),
   goButton = element(by.id('gobutton')),
