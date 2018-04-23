@@ -27,9 +27,7 @@ async function allPromisesTrue(arr) {
   return resolvedPromisesArr.every(promise => promise === true);
 }
 
-const delay = (timeout, 1000)
-=>
-(log('Delaying promise'), new Promise(resolve => setTimeout(_ => (log('Promise delayed'), resolve()), timeout)));
+const delay = (timeout = 1000) => (log('Delaying promise'), new Promise(resolve => setTimeout(_ => (log('Promise delayed'), resolve()), timeout)));
 
 
 describe('Promises mistakes', function () {
@@ -80,6 +78,7 @@ describe('Promises mistakes', function () {
       Promise.resolve()
         .then(_ => {
           conslole.log(getUserName(1));
+          return getUserName(1);
         })
         .then(userName => expect(userName).toEqual('Vasyl Pupkin'));
 
@@ -93,6 +92,7 @@ describe('Promises mistakes', function () {
       Promise.resolve()
         .then(_ => {
           conslole.log(getUserNameSync(1));
+          return getUserName(1);
         })
         .then(userName => expect(userName).toEqual('John Doe'))
         .catch(error => expect(error).toBe(null));
@@ -123,7 +123,7 @@ describe('Promises mistakes', function () {
 
       latestCalculation.isPresent()
         .then(latestCalculationIsPresent => {
-          if (!latestCalculation.resIsPresent) {
+          if (!latestCalculationIsPresent) {
             clickGoButton();
             expect(lastResult.getText()).toEqual('42');
           }

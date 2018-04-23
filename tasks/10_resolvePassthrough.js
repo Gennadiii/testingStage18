@@ -1,9 +1,9 @@
 function myPromise() {
   return new Promise(resolve => {
-    resolve('Resolved');
+    resolve(1);
   });
 }
 
 myPromise()
-  .then(console.log(`Your ad may be here`))
+  .then(console.log(2))
   .then(console.log);
