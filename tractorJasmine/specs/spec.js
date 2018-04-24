@@ -17,6 +17,14 @@ function clickGoButton() {
   goButton.click();
 }
 
+function apiCall(timeout, returnValue) {
+  return new Promise((resolve, reject) => {
+    setTimeout(_ => returnValue === 13
+      ? reject('just because')
+      : resolve(returnValue), timeout)
+  });
+}
+
 
 describe('Protractor Demo App', function () {
 
@@ -122,6 +130,70 @@ describe('Protractor Demo App', function () {
 
       expect(elementNotDisplayed(notExistingElement)).toBe(true)
     });
+  });
+
+
+  describe('Example 4 - api calls', function () {
+
+
+    it(`forget to done`, function () {
+      apiCall(5000, 42)
+        .then(someApiValue => {
+          expect(someApiValue).toEqual(42);
+        });
+    });
+
+
+    it(`done`, function (done) {
+      apiCall(3000, 42)
+        .then(someApiValue => {
+          console.log(someApiValue);
+          expect(someApiValue).toEqual(42);
+        })
+        .then(done);
+    });
+
+
+    it(`forget to catch`, function (done) {
+      apiCall(1000, 13)
+        .then(someApiValue => {
+          expect(someApiValue).toEqual(13);
+        })
+        .then(done);
+    });
+
+
+    it(`caught`, function (done) {
+      apiCall(1000, 13)
+        .then(someApiValue => {
+          expect(someApiValue).toEqual(13);
+        })
+        .then(done).catch(_ => done.fail('I caught the error!'));
+    });
+
+
+    it(`ui mixed started with native promise`, function (done) {
+      apiCall(1000, 40)
+        .then(someApiValue => enterDigit(someApiValue, firstField))
+        .then(_ => apiCall(1000, 2))
+        .then(someApiValue => enterDigit(someApiValue, secondField))
+        .then(_ => clickGoButton())
+        .then(_ => expect(lastResult.getText()).toEqual(13))
+        .then(done).catch(_ => done.fail('I caught the error!'));
+    });
+
+
+    it(`ui mixed started with protractor promise`, function (done) {
+      protractor.promise.fulfilled()
+        .then(_ => apiCall(1000, 40))
+        .then(someApiValue => enterDigit(someApiValue, firstField))
+        .then(_ => apiCall(1000, 2))
+        .then(someApiValue => enterDigit(someApiValue, secondField))
+        .then(_ => clickGoButton())
+        .then(_ => expect(lastResult.getText()).toEqual('42'))
+        .then(done).catch(_ => done.fail('I caught the error!'));
+    });
+
   });
 
 });
