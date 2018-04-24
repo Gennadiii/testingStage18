@@ -171,29 +171,6 @@ describe('Protractor Demo App', function () {
         .then(done).catch(_ => done.fail('I caught the error!'));
     });
 
-
-    it(`ui mixed started with native promise`, function (done) {
-      apiCall(1000, 40)
-        .then(someApiValue => enterDigit(someApiValue, firstField))
-        .then(_ => apiCall(1000, 2))
-        .then(someApiValue => enterDigit(someApiValue, secondField))
-        .then(_ => clickGoButton())
-        .then(_ => expect(lastResult.getText()).toEqual(13))
-        .then(done).catch(_ => done.fail('I caught the error!'));
-    });
-
-
-    it(`ui mixed started with protractor promise`, function (done) {
-      protractor.promise.fulfilled()
-        .then(_ => apiCall(1000, 40))
-        .then(someApiValue => enterDigit(someApiValue, firstField))
-        .then(_ => apiCall(1000, 2))
-        .then(someApiValue => enterDigit(someApiValue, secondField))
-        .then(_ => clickGoButton())
-        .then(_ => expect(lastResult.getText()).toEqual('42'))
-        .then(done).catch(_ => done.fail('I caught the error!'));
-    });
-
   });
 
 });
